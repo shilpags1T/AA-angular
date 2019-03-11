@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    border:2px solid white; 
+    background-color:  rgb(84, 219, 84);
+    width:100%; 
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+}
+.container > div {
+    font-size: 1.5vw;
+    color: rgb(239, 243, 242);
+    /* background-color: rgb(84, 219, 84); */
+    margin-right: 0%;
+    display:flex;
+  }
+.siteadmin{
+    display: flex;
+    justify-content: right;
+    /* background: rgb(84, 219, 84); */
+    border: 0.08rem solid rgb(26, 170, 196);
+   
+}
+.help{
+    display: flex;
+    /* background: rgb(84, 219, 84); */
+    border: 0.08rem solid rgb(53, 196, 221);
+}
+
+.logo{
+    height:90px;
+}
+
+.header-right{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; 
+}
+.image{
+    display: flex;
+    justify-items: center;
+}

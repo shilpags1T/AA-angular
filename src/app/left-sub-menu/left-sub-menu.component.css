@@ -1,0 +1,38 @@
+
+.main {
+    width: 15vw;
+    height: 81vh;
+    border: 1px solid #c3c3c3;
+    display: flex;
+    flex-direction: column;
+    background: lightgrey;
+    position: fixed;
+  }
+
+  .items{
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .elements {
+    display: flex;
+    flex-grow: 0;
+    width: 14vw;
+    height: 80px;
+    background: rgb(115, 121, 124);
+   margin-top: 10px;
+    padding-left: 8px;
+    padding-top: 2rem;
+    position: relative;
+    color:white;
+    
+
+  }
+  .router-link-active{
+    text-decoration-line:none;
+   
+  }
+  .maindiv{
+      margin-top: 10px;
+      margin-left: 10px;
+  }

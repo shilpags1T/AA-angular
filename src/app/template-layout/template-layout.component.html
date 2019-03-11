@@ -1,0 +1,49 @@
+
+<h3 class="layout">Questionery Templates</h3>
+
+<div ><button class="button-margin" (click)="clickButton()">Create</button></div>
+
+<div [hidden]="submitted" style="width: 300px;">
+            <popup (confirmClick)="onSubmit()">
+                  <form name="createForm" (ngSubmit)="onSubmit()">
+                      
+                        <div class="form-group">
+                            <label for="name"  class="required">*</label>Name
+                            <input type="text" class="form-control" id="name" required maxlength="100" [(ngModel)]="template.templateName"  name="name"> 
+                        </div>
+                        
+                        <div class="form-group">
+                              <label for="description">Description</label>
+                              <textarea rows="4" column="50" class="form-control" id="description" required [(ngModel)]="template.templateDescription" maxlength="1000" name="description"></textarea>
+                        </div>
+                  </form>
+            </popup>
+</div>
+
+
+ <div class="showButton container">            
+    <div *ngIf="(templateList | async)?.length==0">
+        <p>No templates available</p>
+    </div>
+    <div *ngIf="(templateList|async)?.length>0">
+            <div class="flex-main-layout">
+                        <div *ngFor="let template of templateList | async" style="width: 300px;">
+                            
+                            <div *ngIf="template">  
+                                <div class="card flex-card cursor-pointer" style="width: 15rem;">
+                                    <img class="card-img-top" src="..." alt="template icon">
+                                    <div class="card-body">
+                                            <h6 class="card-title"> {{template.templateName}}</h6>
+                                            <h6>id:{{template.templateId}}</h6>
+                                            <h6 class="card-title"> {{template.state}}</h6>
+                                            <button (click)="onClick(template.templateId)">get template</button>
+                                    </div>
+                                    </div>
+                                </div>          
+                        
+                        </div>
+            </div>
+    </div>
+   
+</div> 
+
