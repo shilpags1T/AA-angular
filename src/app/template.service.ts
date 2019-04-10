@@ -12,19 +12,20 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class TemplateService {
  
   constructor(private http: HttpClient) { }
-  private baseUrl = 'http://localhost:8080/api/templates';
+  private baseUrl = 'http://localhost:8080/templates';
 
   createTemplate(template: Templates): Observable<Templates> {
-         return this.http.post<Templates>(`${this.baseUrl}` + `/create`, template);
+         return this.http.post<Templates>(`${this.baseUrl}`, template);
   }
   getTemplatesList(): Observable<Templates[]> {
     // console.log(this.http.get(this.baseUrl));
     return this.http.get<Templates[]>(this.baseUrl) ;
 
   }
- getTemplate(id: number): Observable<Templates> {
+  
+ getTemplate(id: string): Observable<Templates> {
     
-    console.log(this.http.get<Templates>(`${this.baseUrl}/${id}`));
+    // console.log(this.http.get<Templates>(`${this.baseUrl}/${id}`));
     return this.http.get<Templates>(`${this.baseUrl}/${id}`);
     
   }

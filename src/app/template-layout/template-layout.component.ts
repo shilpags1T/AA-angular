@@ -6,7 +6,6 @@ import {TemplateService} from '../template.service';
 import { ToastrService } from 'ngx-toastr';
 import {Observable} from 'rxjs'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ShareDataService } from '../sharedService/share-data.service';
 import {  EventEmitter, Output } from '@angular/core';
 
 
@@ -21,13 +20,12 @@ export class TemplateLayoutComponent implements OnInit {
   template1={} as Observable<Templates>;
   template = {} as Templates;
   templateList: Observable<Templates[]>;
-  submitted= false;
   data={} as Templates ;
-  id:number;
+  Id:string;
+  createForm: FormGroup;
+  submitted = false;
 
-  @Output() redirect:EventEmitter<any> = new EventEmitter();
-
-  constructor(private popup:Popup , private templateservice:TemplateService,private router: Router,private formBuilder: FormBuilder,private sharedataservice:ShareDataService ) { }
+  constructor(private popup:Popup , private templateservice:TemplateService, private router: Router,private formBuilder: FormBuilder ) { }
   
   clickButton(){
     this.popup.options={
@@ -43,36 +41,38 @@ export class TemplateLayoutComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+   
   }
-
+  
+ 
   save() {
-    
+    // console.log( this.templateservice.createTemplate(this.template));
     this.templateservice.createTemplate(this.template)
       .subscribe(data => this.reloadData(), error => console.log(error));  
-    //this.template = newTemplate;
     this.router.navigateByUrl('/builder');  
   }
 
   onSubmit() {
     this.submitted=true;
     this.save();
+    
   }
   
   reloadData() {
+    // console.log(this.templateservice.getTemplatesList());
     this.templateList = this.templateservice.getTemplatesList();  
     
   }
- getTemplateById(templateId:number){
+  getTemplateById(Id:string){
    
-      this.id=templateId;
-      this.template1=this.templateservice.getTemplate(this.id);
-      // console.log(this.template1);
-      this.sharedataservice.setData(this.template1);
-      this.router.navigateByUrl('/template-details/'+this.id);
+      this.Id=Id;
+      console.log(Id);
+    //  console.log(this.templateservice.getTemplate(this.id).subscribe(data=>console.log(data),error => console.log(error)));
+      this.templateservice.getTemplate(this.Id).subscribe(data=>console.log(data),error => console.log(error));
+      this.router.navigateByUrl('/template-details/'+ this.Id);
       
  }
-  onClick(templateId:number){
-    this.getTemplateById(templateId); 
-  }
+  
+
  
  }

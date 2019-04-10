@@ -1,11 +1,17 @@
-<div class="margin layout-box-shadow margin light-background border">
-    <h5  class="padding-welcome-note">Welcome</h5>
-   
-    <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">collapse all</button> 
-        <div id="demo" class="collapse">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>-->
-<div class="light-background"><button class="button-margin primary-button" (click)="clickButton()">Add Section</button></div>
+<div>
+    <app-header></app-header>
+    <div>
+        <div class="leftsubmenu-margin-top sidebar-fixed full-size flex-flow flex-display sidebar-width">
+            <div><app-left-sub-menu></app-left-sub-menu></div>
+        </div>
+        <div class="build-container">
+            <div class="template-header-style flex-display" style="height:40px;">
+                <h4 style="padding-right: 2rem;">{{templateDetails.name}}</h4>
+                <h6 style="padding-right: 2rem;">template status: {{templateDetails.status}}</h6>
+                <h6 style="padding-right: 2rem;">template version: {{templateDetails.templateVersion}}</h6>
+            </div>
+            <div class="padding-top" [innerHTML]="templateDetails.welcomeText">
+            </div>
+        </div>
+    </div>
 </div>

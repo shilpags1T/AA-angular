@@ -1,3 +1,65 @@
-<p class="showButton">
-  template-list works!
-</p>
+<div>
+    <app-header></app-header>
+    <div class="leftsubmenu-margin-top sidebar-fixed full-size flex-flow flex-display sidebar-width">
+        <div><app-left-sub-menu></app-left-sub-menu></div>
+    </div>
+    <div class="template-header-margin-left flex-display flex-full-height flex-flow">
+        <div class="template-header-margin-top  flex-flow flex-full-height relative-position">
+            <div class="template-header-style flex-display" style="height:40px;">
+                <h4>Questionary templates</h4>
+            </div>
+            <div class="template-header-style template-add-questionery-style display-flex" style="height:90px;">
+                <h6>add new Questionery Template</h6>
+                <button class="create-button-style" style="background-color: dodgerblue"(click)="clickButton()">Create Template</button>
+            </div>
+            <div class="shadowHeader flex-display">
+                <div class="topnav">
+                    <a class="justify-content margin" (click)="activeTab = !activeTab">Templates</a>     
+                    <a (click)="activeTab = !activeTab">Archive</a>
+                </div>             
+            </div>
+            <div [hidden]="submitted" style="width: 300px;">
+                <popup #popup1 (confirmClick)="onSubmit()">
+                    <form [formGroup]="createTemplateForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="name" class="required">*</label>TemplateName
+                            <input type="text" formControlName="name" 
+                                class="form-control field-width" 
+                                (keyup)="enableCreateButton()"
+                                [ngClass]="{ 'is-invalid': submitted && formValues.name.errors }" />
+                            <div *ngIf="submitted && formValues.name.errors" class="invalid-feedback">
+                                <div *ngIf="formValues.name.errors.required">TemplateName is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea formControlName="description" 
+                                rows="4" 
+                                column="50" 
+                                class="form-control" 
+                                id="description"  
+                                maxlength="1000" 
+                                name="description"
+                                [ngClass]="{ 'is-invalid': submitted && formValues.description.errors }">
+                            </textarea>
+                        </div>  
+                        <div class="form-group">
+                            <button class="create-button-style" style="background-color: lightblue" >Cancel</button>
+                            <button class="create-button-style" id="btSubmit" (click)="onSubmit()" [disabled]="disabled">Create Template</button>
+                        </div> 
+                    </form>
+                </popup>
+            </div>
+        </div>
+        <div *ngIf="activeTab; else archives" id="template-cards">
+            <app-ot-template-cards></app-ot-template-cards>
+        </div>
+        <ng-template #archives>
+                <app-archive-templates></app-archive-templates>
+        </ng-template>
+    </div>  
+</div>
+
+    
+  
+    

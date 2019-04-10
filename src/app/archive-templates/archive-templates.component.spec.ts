@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchTemplatesComponent } from './search-templates.component';
+import { ArchiveTemplatesComponent } from './archive-templates.component';
 
-describe('SearchTemplatesComponent', () => {
-  let component: SearchTemplatesComponent;
-  let fixture: ComponentFixture<SearchTemplatesComponent>;
+describe('ArchiveTemplatesComponent', () => {
+  let component: ArchiveTemplatesComponent;
+  let fixture: ComponentFixture<ArchiveTemplatesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchTemplatesComponent ]
+      declarations: [ ArchiveTemplatesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchTemplatesComponent);
+    fixture = TestBed.createComponent(ArchiveTemplatesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

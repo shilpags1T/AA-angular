@@ -28,7 +28,7 @@ import {
               errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
             }
             //this.toastr.errorToastr('This is error toast.', 'Oops!');
-            window.alert('this template name already used');
+            window.alert("Invalid credentials");
             //this.toasterService.error(errorMessage);
             return throwError(errorMessage);
           })

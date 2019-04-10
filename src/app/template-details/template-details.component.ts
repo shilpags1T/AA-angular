@@ -3,22 +3,24 @@ import {TemplateService} from '../template.service';
 import { StateService } from "@uirouter/core";
 import { Templates } from '../templates';
 import { Observable, from } from 'rxjs';
-import { Router } from '@angular/router';
-import { ShareDataService} from '../sharedService/share-data.service';
+import { Router, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-template-details',
   templateUrl: './template-details.component.html',
   styleUrls: ['./template-details.component.css']
 })
 export class TemplateDetailsComponent implements OnInit {
+  id: number;
+  private sub: any;
  
- @Input() data={} as Templates;
-  constructor(private router: Router,private sharedataservice:ShareDataService) { }
+  constructor(private router: Router,private route: ActivatedRoute,private templateservice:TemplateService) { }
 
   ngOnInit() {
-    
-    this.data = this.sharedataservice.getData();
-    console.log(this.data);
-  }
+      this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; // (+) converts string 'id' to a number
+      
+  });
+}
   
 }

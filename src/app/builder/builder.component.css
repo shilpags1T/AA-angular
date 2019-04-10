@@ -1,21 +1,10 @@
-.margin{
-    margin-left: 15.5vw;
+.build-container{
+    display:flex;
+    margin-left:12rem;
+    flex-direction: column;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
-.primary-button{
-    background: blue;
-}
-.light-background{
-    background:rgb(248, 239, 239);
-}
-.border{
-    border:10px 10px black;
-}
-.padding-welcome-note{
-    padding: 15px;
-}
-.layout-box-shadow{
-        
-        width:90rem;
-        height:10rem;
-        /* box-shadow: 2px 2px rgb(85, 82, 82); */
+.padding-top{
+    padding-top:8%;
 }

@@ -21,7 +21,7 @@
     flex-direction: row; 
     min-height:100%;
     padding-top: 5%;
-    height:320px;
+    height:300px;
 }
 .flex-card{
     display: flex;
@@ -61,7 +61,7 @@
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
  }
  .create-button-style{
-     
+     /* position: relative; */
      padding :8px;
      margin-left:15.3vw;
  }
@@ -75,7 +75,7 @@
  }
  .template-header-style{
     display: flex;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     box-shadow: 1px 1px 6px 0px  rgba(0,0,0,0.3);
     flex-wrap: wrap;
  }
@@ -84,12 +84,13 @@
     display: flex;
     flex: 0 0 290px;
     border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
     flex-wrap: wrap;
     flex-direction: row; 
     justify-content: space-between;
     position:absolute;
     max-height: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     
 }
 .relative-position{
@@ -107,6 +108,7 @@
     padding-top: 15px;
     padding-left:20rem;
     font-family: Arial, Helvetica, sans-serif;
+    /* min-height: 40%; */
 }
 .sidebar-fixed{
     position:fixed;
@@ -116,6 +118,7 @@
     height:100%;
 }
 .template-header-margin-top{
+    margin-top: 90px;
     padding:10px;
 }
 .display-block{
@@ -139,6 +142,7 @@
 .router-link-active{
     text-decoration-line:none;
     color: white;
+   
   }
 
 .nav-container{
@@ -166,12 +170,12 @@
 .tp-tabs-item{
     display:flex;
 }
+
   .topnav {
-    display: flex; 
+    display: flex;
     overflow: hidden;
-    /* background-color: #cec9c9; */
+    background-color: #f1f1f1;
     margin-left: 25%;
-    max-width: 300px;
   }
   .margin{
       margin-right:100px;
