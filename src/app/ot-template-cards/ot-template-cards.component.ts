@@ -64,7 +64,7 @@ export class OtTemplateCardsComponent implements OnInit {
 }
 
 
-  discardDraft(rootVersionId:string){
-    this.templatelistservice.deleteDraft(rootVersionId);
-  }
+  // discardDraft(rootVersionId:string){
+  //   this.templatelistservice.deleteDraft(rootVersionId);
+  // }
 }

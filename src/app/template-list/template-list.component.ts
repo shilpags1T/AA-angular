@@ -38,6 +38,7 @@ export class TemplateListComponent implements OnInit {
   //   // this.router.navigateByUrl('../template-list')
   // }
   clickButton(){
+    this.submitted =false;
     this.popup1.options={
       header: "Create template",
       confirmBtnContent: "Create Template",
@@ -46,6 +47,7 @@ export class TemplateListComponent implements OnInit {
     }
     this.popup1.show(this.popup1.options);
   }
+
   get formValues() { 
     return this.createTemplateForm.controls;   
   }
@@ -83,5 +85,8 @@ export class TemplateListComponent implements OnInit {
         }
   }  
   
+  abc() {
+    // console.log(this.submitted);  
+  }
 
 }

@@ -10,7 +10,12 @@
                 <h6 style="padding-right: 2rem;">template status: {{templateDetails.status}}</h6>
                 <h6 style="padding-right: 2rem;">template version: {{templateDetails.templateVersion}}</h6>
             </div>
-            <div class="padding-top" [innerHTML]="templateDetails.welcomeText">
+            <div class="container padding-top">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Welcome</button>
+                <div id="demo" class="collapse">
+                    <div class="padding-top" [innerHTML]="templateDetails.welcomeText">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

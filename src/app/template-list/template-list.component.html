@@ -19,7 +19,7 @@
                 </div>             
             </div>
             <div [hidden]="submitted" style="width: 300px;">
-                <popup #popup1 (confirmClick)="onSubmit()">
+                <popup #popup1 (confirmClick)="onSubmit()" (cancelClick)="abc()">
                     <form [formGroup]="createTemplateForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
                             <label for="name" class="required">*</label>TemplateName

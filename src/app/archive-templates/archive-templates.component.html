@@ -1,1 +1,36 @@
-
+<div style="margin-bottom:90%;">
+        <div id="all-templates" class="full-height">    
+                <!-- <div *ngIf="isLoading; else TemplateContainer" class="container">loading...</div> -->
+                <!-- <ng-template #TemplateContainer> -->
+                    <div *ngIf="(allTemplates)?.length==0">
+                        <p>No templates available</p>
+                    </div>
+                    <div class="template-card-layout container">
+                        <div class="flex-wrap-template" *ngIf="(allTemplates)?.length>0">
+                            <div class="container" >
+                                <div *ngFor="let template of allTemplates" style="width: 250px;height: 250px;">
+                                    <div *ngIf="template">  
+                                        <div class="card flex-card cursor-pointer" style="width: 15rem;height:15rem;">
+                                            <div class="card-body " (click)="getTemplateById(template)">
+                                                <div class="align-right">
+                                                    
+                                                </div>
+                                                <div *ngIf="template.draft;else published">  
+                                                    <h6 class="card-title"> {{template.draft.name}}</h6>
+                                                    <h6 class="card-footer padding-card-top"> draft</h6>
+                                                </div>
+                                                <ng-template #published>
+                                                    <h6 class="card-title"> {{template.published.name}}</h6>
+                                                    <h6 class="card-footer padding-card-top"> published</h6>
+                                                </ng-template>    
+                                            </div>
+                                        </div>
+                                        
+                                    </div>                           
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </ng-template> -->
+            </div>
+</div>

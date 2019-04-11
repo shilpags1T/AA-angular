@@ -19,12 +19,16 @@ export class TemplatelistServiceService {
   getTemplates():Observable<TemplateDetails[]>{
     return this.http.get<TemplateDetails[]>(`https://pia1-app.dev.otdev.org/api/template/v1/templates/details?type=PIA`);
   }
-  getArchives():Observable<any[]>{
-    return this.http.get<any>(`https://pia1-app.dev.otdev.org/api/template/v1/templates/details?type=PIA&active=false`);
+
+  getArchives():Observable<TemplateDetails[]>{
+    console.log( this.http.get<TemplateDetails[]>(`https://pia1-app.dev.otdev.org/api/template/v1/templates/details?type=PIA&active=false`));
+    return this.http.get<TemplateDetails[]>(`https://pia1-app.dev.otdev.org/api/template/v1/templates/details?type=PIA&active=false`);
   }
+
   getTemplateById(id:string,version:number = 1):Observable<TemplateDetails>{
      return this.http.get<TemplateDetails>(`https://pia1-app.dev.otdev.org/api/template/v1/templates/rootversion/${id}?version=${version}`);
   }
+
   postTemplates(name:string,description:string): Observable<any>{
     let templatedata = {
       description: description,
@@ -41,9 +45,10 @@ export class TemplatelistServiceService {
     };
     return this.http.post<any>('https://pia1-app.dev.otdev.org/api/template/v1/templates',templatedata,options);
   }
-  deleteDraft(rootVersionId:string){
-      return this.http.delete<any>('https://pia1-app.dev.otdev.org/api/template/v1/templates/'+rootVersionId);
-  }
+
+  // deleteDraft(rootVersionId:string){
+  //     return this.http.delete<any>('https://pia1-app.dev.otdev.org/api/template/v1/templates/'+rootVersionId);
+  // }
   // getTemplate(id: string): Observable<TemplateDetails> {
     
   //   // console.log(this.http.get<Templates>(`${this.baseUrl}/${id}`));
